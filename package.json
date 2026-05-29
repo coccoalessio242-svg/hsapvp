@@ -1,0 +1,15 @@
+{
+  "name": "deadshot-pvp-discord-bot",
+  "version": "1.0.0",
+  "description": "Discord bot service for Deadshot PvP whitelist and avatar lookup.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.4",
+    "undici": "^5.3.3",
+    "dotenv": "^16.3.1"
+  }
+}
