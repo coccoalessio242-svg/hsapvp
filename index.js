@@ -81,14 +81,18 @@ app.get('/user/:discordId', async (req, res) => {
     }
 
     const user = member.user || {}
+    if (!user.id) {
+      return res.status(400).json({ error: 'User data incomplete' })
+    }
+    
     const avatarUrl = buildAvatarUrl(discordId, user.avatar)
     const hasWhitelistRole = hasRequiredRole(member.roles || [])
 
     return res.json({
       user: {
         id: user.id,
-        username: user.username,
-        discriminator: user.discriminator,
+        username: user.username || 'Unknown',
+        discriminator: user.discriminator || '0000',
         avatar: user.avatar,
         avatarUrl
       },
